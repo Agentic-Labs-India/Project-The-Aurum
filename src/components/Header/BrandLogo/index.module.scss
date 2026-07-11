@@ -1,0 +1,61 @@
+@use '@scss/common' as *;
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--brand-charcoal, #231f14);
+  min-width: 0;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: none;
+    color: var(--brand-charcoal, #231f14);
+  }
+}
+
+.mark {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: auto;
+  color: var(--brand-charcoal-forest, #1a1610);
+}
+
+.logoImage {
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  height: 2rem;
+
+  :global(img) {
+    display: block;
+    width: auto;
+    height: 2rem;
+    max-width: 10rem;
+    object-fit: contain;
+  }
+}
+
+.brandName {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+@include small-break {
+  .brandName {
+    font-size: 1.05rem;
+  }
+
+  .logoImage {
+    height: 1.75rem;
+
+    :global(img) {
+      height: 1.75rem;
+    }
+  }
+}

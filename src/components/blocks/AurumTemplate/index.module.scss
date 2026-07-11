@@ -1,0 +1,73 @@
+@use '@scss/common' as *;
+
+.template {
+  background: var(--brand-ivory, #f5f2ea);
+  color: var(--brand-charcoal, #231f14);
+}
+
+.hasHero {
+  background: transparent;
+}
+
+.gutter {
+  width: 100%;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.section {
+  width: 100%;
+}
+
+.heroSection {
+  width: 100%;
+}
+
+.empty {
+  border: 1px solid var(--brand-border, #d4ccc0);
+  border-radius: 24px;
+  background: var(--brand-mist, #ebe6dd);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  text-align: left;
+  box-shadow: var(--brand-shadow, 0 10px 30px rgba(35, 31, 20, 0.08));
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.emptyEyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-terracotta, #b8956c);
+}
+
+.emptyTitle {
+  margin: 0 0 1rem;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--brand-forest, #231f14);
+}
+
+.emptyBody {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--brand-slate, #6d675b);
+}
+
+@include small-break {
+  .empty {
+    border-radius: 18px;
+    padding: 1.5rem;
+  }
+}

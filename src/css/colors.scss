@@ -1,0 +1,167 @@
+/* The Aurum — Luxury Hotel (Espresso & Cream) */
+:root {
+  /* Neutrals: Cream → Warm Beige → Espresso */
+  --color-base-0: rgb(255, 255, 255);
+  --color-base-50: rgb(245, 242, 234); /* Soft Cream */
+  --color-base-100: rgb(235, 230, 221); /* Warm Sand */
+  --color-base-150: rgb(228, 222, 210);
+  --color-base-200: rgb(212, 204, 192); /* Soft Border */
+  --color-base-250: rgb(200, 190, 174);
+  --color-base-300: rgb(184, 172, 152); /* Warm Stone */
+  --color-base-350: rgb(166, 152, 130);
+  --color-base-400: rgb(140, 128, 108);
+  --color-base-450: rgb(122, 112, 96);
+  --color-base-500: rgb(109, 103, 91); /* Muted Brown-Grey */
+  --color-base-550: rgb(92, 86, 74);
+  --color-base-600: rgb(74, 68, 58);
+  --color-base-650: rgb(58, 52, 44);
+  --color-base-700: rgb(48, 42, 34);
+  --color-base-750: rgb(42, 36, 28);
+  --color-base-800: rgb(35, 31, 20); /* Espresso */
+  --color-base-850: rgb(26, 22, 16); /* Deep Espresso */
+  --color-base-900: rgb(20, 17, 12);
+  --color-base-950: rgb(14, 12, 8);
+  --color-base-1000: rgb(35, 31, 20); /* Espresso (primary text) */
+
+  /* Accent / CTA: Antique Gold */
+  --color-success-50: rgb(252, 248, 240);
+  --color-success-100: rgb(246, 238, 222);
+  --color-success-150: rgb(236, 222, 196);
+  --color-success-200: rgb(224, 204, 168);
+  --color-success-250: rgb(208, 182, 136);
+  --color-success-300: rgb(196, 168, 116);
+  --color-success-350: rgb(184, 156, 108);
+  --color-success-400: rgb(184, 149, 108); /* Antique Gold */
+  --color-success-450: rgb(172, 136, 96);
+  --color-success-500: rgb(184, 149, 108); /* Primary CTA */
+  --color-success-550: rgb(160, 127, 88); /* Deep Gold (hover) */
+  --color-success-600: rgb(142, 112, 76);
+  --color-success-650: rgb(122, 96, 64);
+  --color-success-700: rgb(102, 80, 52);
+  --color-success-750: rgb(82, 64, 42);
+  --color-success-800: rgb(66, 50, 32);
+  --color-success-850: rgb(50, 38, 24);
+  --color-success-900: rgb(36, 28, 18);
+  --color-success-950: rgb(22, 16, 10);
+
+  /* Warm Stone / champagne */
+  --color-warning-50: rgb(252, 248, 240);
+  --color-warning-100: rgb(246, 240, 228);
+  --color-warning-150: rgb(236, 226, 208);
+  --color-warning-200: rgb(224, 212, 190);
+  --color-warning-250: rgb(208, 192, 164);
+  --color-warning-300: rgb(184, 172, 152); /* Warm Stone */
+  --color-warning-350: rgb(170, 156, 132);
+  --color-warning-400: rgb(154, 138, 112);
+  --color-warning-450: rgb(138, 122, 96);
+  --color-warning-500: rgb(122, 106, 80);
+  --color-warning-550: rgb(106, 92, 68);
+  --color-warning-600: rgb(90, 78, 56);
+  --color-warning-650: rgb(76, 64, 46);
+  --color-warning-700: rgb(62, 52, 38);
+  --color-warning-750: rgb(50, 42, 30);
+  --color-warning-800: rgb(40, 34, 24);
+  --color-warning-850: rgb(30, 26, 18);
+  --color-warning-900: rgb(22, 18, 14);
+  --color-warning-950: rgb(14, 12, 8);
+
+  /* Soft Brick Red */
+  --color-error-50: rgb(252, 242, 240);
+  --color-error-100: rgb(248, 228, 224);
+  --color-error-150: rgb(240, 208, 200);
+  --color-error-200: rgb(228, 180, 168);
+  --color-error-250: rgb(212, 148, 132);
+  --color-error-300: rgb(196, 116, 100);
+  --color-error-350: rgb(182, 92, 76);
+  --color-error-400: rgb(169, 68, 56);
+  --color-error-450: rgb(156, 60, 48);
+  --color-error-500: rgb(169, 68, 56);
+  --color-error-550: rgb(148, 58, 48);
+  --color-error-600: rgb(128, 50, 42);
+  --color-error-650: rgb(110, 42, 36);
+  --color-error-700: rgb(92, 36, 30);
+  --color-error-750: rgb(74, 30, 24);
+  --color-error-800: rgb(58, 24, 20);
+  --color-error-850: rgb(44, 18, 16);
+  --color-error-900: rgb(32, 14, 12);
+  --color-error-950: rgb(18, 8, 8);
+
+  /* Brand primary: Espresso (links / dark accents) */
+  --color-blue-50: rgb(244, 240, 232);
+  --color-blue-100: rgb(235, 230, 221); /* Soft Cream */
+  --color-blue-150: rgb(212, 204, 192);
+  --color-blue-200: rgb(184, 172, 152);
+  --color-blue-250: rgb(154, 140, 120);
+  --color-blue-300: rgb(122, 110, 92);
+  --color-blue-350: rgb(109, 103, 91);
+  --color-blue-400: rgb(74, 68, 58);
+  --color-blue-450: rgb(48, 42, 34);
+  --color-blue-500: rgb(35, 31, 20); /* Espresso */
+  --color-blue-550: rgb(30, 26, 17);
+  --color-blue-600: rgb(26, 22, 16); /* Deep Espresso */
+  --color-blue-650: rgb(22, 18, 14);
+  --color-blue-700: rgb(20, 17, 12);
+  --color-blue-750: rgb(18, 15, 11);
+  --color-blue-800: rgb(16, 13, 10);
+  --color-blue-850: rgb(14, 11, 8);
+  --color-blue-900: rgb(12, 10, 7);
+  --color-blue-950: rgb(8, 7, 5);
+
+  /* Champagne / soft cream highlights */
+  --color-purple-50: rgb(250, 247, 240);
+  --color-purple-100: rgb(245, 242, 234);
+  --color-purple-150: rgb(235, 230, 221); /* Warm Sand */
+  --color-purple-200: rgb(224, 216, 200);
+  --color-purple-250: rgb(208, 196, 172);
+  --color-purple-300: rgb(192, 176, 148);
+  --color-purple-350: rgb(168, 150, 120);
+  --color-purple-400: rgb(148, 130, 100);
+  --color-purple-450: rgb(128, 112, 84);
+  --color-purple-500: rgb(112, 98, 72);
+  --color-purple-550: rgb(96, 84, 62);
+  --color-purple-600: rgb(80, 70, 52);
+  --color-purple-650: rgb(68, 58, 44);
+  --color-purple-700: rgb(56, 48, 36);
+  --color-purple-750: rgb(46, 40, 30);
+  --color-purple-800: rgb(36, 32, 24);
+  --color-purple-850: rgb(28, 24, 18);
+  --color-purple-900: rgb(20, 17, 12);
+  --color-purple-950: rgb(12, 10, 8);
+
+  --color-blue-text-light: rgb(35, 31, 20);
+  --color-blue-text-dark: rgb(235, 230, 221);
+  --color-blue-bg-light: rgb(235, 230, 221);
+  --color-blue-bg-dark: rgb(26, 22, 16);
+  --color-blue-border-light: rgb(35, 31, 20);
+  --color-blue-border-dark: rgb(184, 172, 152);
+
+  --color-orange-text-light: rgb(35, 31, 20);
+  --color-orange-text-dark: rgb(246, 238, 222);
+  --color-orange-bg-light: rgb(246, 238, 222);
+  --color-orange-bg-dark: rgb(51, 42, 28);
+  --color-orange-border-light: rgb(184, 149, 108);
+  --color-orange-border-dark: rgb(184, 149, 108);
+
+  --color-red-text-light: rgb(102, 40, 32);
+  --color-red-text-dark: rgb(248, 228, 224);
+  --color-red-bg-light: rgb(248, 228, 224);
+  --color-red-bg-dark: rgb(51, 27, 22);
+  --color-red-border-light: rgb(169, 68, 56);
+  --color-red-border-dark: rgb(169, 68, 56);
+
+  /* Explicit brand tokens — token names kept for existing UI */
+  --brand-forest: #231f14; /* Espresso */
+  --brand-stone: #b8ac98;
+  --brand-terracotta: #b8956c; /* Antique Gold */
+  --brand-terracotta-hover: #a07f58;
+  --brand-ivory: #f5f2ea; /* Soft Cream */
+  --brand-mist: #ebe6dd; /* Warm Sand */
+  --brand-charcoal-forest: #1a1610; /* Deep Espresso */
+  --brand-charcoal: #231f14; /* Espresso text */
+  --brand-slate: #6d675b; /* Muted brown-grey */
+  --brand-border: #d4ccc0;
+  --brand-sage: #e8dfd0; /* Champagne highlight */
+  --brand-olive: #8a7a5c;
+  --brand-error: #a94438;
+  --brand-shadow: 0 10px 30px rgba(35, 31, 20, 0.08);
+}
