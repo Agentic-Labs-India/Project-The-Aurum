@@ -2,7 +2,7 @@
 
 import type { Media as MediaType } from '@root/payload-types'
 
-import { CMSLink } from '@components/CMSLink/index'
+import { CMSLink, type CMSLinkType } from '@components/CMSLink/index'
 import { Media } from '@components/Media/index'
 import { formatSheetSlug, Sheet, SheetToggler } from '@components/Sheet/index'
 import { useModal } from '@faceless-ui/modal'
@@ -13,23 +13,14 @@ import classes from './index.module.scss'
 
 type NavLinkItem = {
   id?: null | string
-  link?: {
-    label?: null | string
-    newTab?: boolean | null
-    reference?: {
-      relationTo: 'case-studies' | 'pages' | 'posts'
-      value: { slug?: string } | string
-    } | null
-    type?: 'custom' | 'reference' | null
-    url?: null | string
-  }
+  link?: CMSLinkType | null
 }
 
 export type AurumHeroProps = {
   backgroundImage?: MediaType | null | string
   blockType?: 'aurumHero'
   brandName?: null | string
-  cta?: NavLinkItem['link']
+  cta?: CMSLinkType | null
   description?: null | string
   headline?: null | string
   id?: null | string

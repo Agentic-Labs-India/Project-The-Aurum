@@ -2,26 +2,15 @@
 
 import type { Media as MediaType } from '@root/payload-types'
 
-import { CMSLink } from '@components/CMSLink/index'
+import { CMSLink, type CMSLinkType } from '@components/CMSLink/index'
 import { Media } from '@components/Media/index'
 import React from 'react'
 
 import classes from './index.module.scss'
 
-type LinkField = {
-  label?: null | string
-  newTab?: boolean | null
-  reference?: {
-    relationTo: 'case-studies' | 'pages' | 'posts'
-    value: { slug?: string } | string
-  } | null
-  type?: 'custom' | 'reference' | null
-  url?: null | string
-}
-
 export type AurumAboutProps = {
   blockType?: 'aurumAbout'
-  cta?: LinkField
+  cta?: CMSLinkType | null
   description?: null | string
   eyebrow?: null | string
   headline?: null | string

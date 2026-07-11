@@ -2,26 +2,15 @@
 
 import type { Media as MediaType } from '@root/payload-types'
 
-import { CMSLink } from '@components/CMSLink/index'
+import { CMSLink, type CMSLinkType } from '@components/CMSLink/index'
 import { Media } from '@components/Media/index'
 import React from 'react'
 
 import classes from './index.module.scss'
 
-type LinkField = {
-  label?: null | string
-  newTab?: boolean | null
-  reference?: {
-    relationTo: 'case-studies' | 'pages' | 'posts'
-    value: { slug?: string } | string
-  } | null
-  type?: 'custom' | 'reference' | null
-  url?: null | string
-}
-
 export type AurumRoomsProps = {
   blockType?: 'aurumRooms'
-  cta?: LinkField
+  cta?: CMSLinkType | null
   description?: null | string
   eyebrow?: null | string
   headline?: null | string
@@ -30,7 +19,7 @@ export type AurumRoomsProps = {
     | {
         id?: null | string
         image?: MediaType | null | string
-        link?: LinkField
+        link?: CMSLinkType | null
         priceLabel?: null | string
         title?: null | string
       }[]
