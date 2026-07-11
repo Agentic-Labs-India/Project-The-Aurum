@@ -17,9 +17,9 @@ build/
 dist/
 .vercel/
 
-# Local uploads (if used)
-media/
-uploads/
+# Local uploads (root only — do not match src/blocks/Media, etc.)
+/media/
+/uploads/
 
 # Caches & tooling
 .turbo/
