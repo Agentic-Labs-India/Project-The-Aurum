@@ -1,6 +1,6 @@
 import type { GlobalConfig } from 'payload'
 
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 import { isAdmin } from '../access/isAdmin'
 import linkGroup from '../fields/linkGroup'
@@ -181,7 +181,12 @@ export const PartnerProgram: GlobalConfig = {
     },
   ],
   hooks: {
-    afterChange: [() => revalidatePath('/parters', 'layout')],
+    afterChange: [
+      () => {
+        revalidateTag('partnerProgram')
+        revalidatePath('/partners', 'layout')
+      },
+    ],
   },
   label: 'Partner Program Directory',
 }

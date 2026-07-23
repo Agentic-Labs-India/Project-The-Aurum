@@ -2551,7 +2551,22 @@ export interface AurumHeroSection {
         id?: string | null;
       }[]
     | null;
-  backgroundImage: string | Media;
+  /**
+   * Choose a still image or a looping background video.
+   */
+  backgroundType?: ('image' | 'video') | null;
+  /**
+   * Full-bleed hero image.
+   */
+  backgroundImage?: (string | null) | Media;
+  /**
+   * Upload an mp4/webm. Plays muted, looping, autoplay.
+   */
+  backgroundVideo?: (string | null) | Media;
+  /**
+   * Shown while the video loads, or if autoplay is blocked.
+   */
+  backgroundVideoPoster?: (string | null) | Media;
   headline: string;
   description: string;
   cta: {

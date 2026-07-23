@@ -16,7 +16,9 @@ export default async ({
   const { isEnabled: draft } = await draftMode()
   const archive = draft
     ? await fetchArchive(category, draft)
-    : await unstable_cache(fetchArchive, [`${category}-archive`])(category, draft)
+    : await unstable_cache(fetchArchive, [`${category}-archive`], {
+        tags: ['archives', `${category}-archive`],
+      })(category, draft)
 
   const posts = archive?.posts?.docs
 

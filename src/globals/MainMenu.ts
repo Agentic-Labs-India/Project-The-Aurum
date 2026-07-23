@@ -1,6 +1,6 @@
 import type { GlobalConfig } from 'payload'
 
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 import { isAdmin } from '../access/isAdmin'
 import link from '../fields/link'
@@ -292,6 +292,12 @@ export const MainMenu: GlobalConfig = {
     },
   ],
   hooks: {
-    afterChange: [() => revalidatePath('/', 'layout')],
+    afterChange: [
+      () => {
+        revalidateTag('globals')
+        revalidateTag('mainMenu')
+        revalidatePath('/', 'layout')
+      },
+    ],
   },
 }

@@ -5,51 +5,6 @@
   position: relative;
 }
 
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: calc(var(--z-modal) + 2);
-  width: 100%;
-  color: #fff;
-  background: transparent;
-  transition:
-    background-color 280ms ease,
-    color 280ms ease,
-    box-shadow 280ms ease,
-    backdrop-filter 280ms ease;
-  animation: aurumFadeDown 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.navInner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  min-height: var(--aurum-nav-height);
-  padding:
-    0.85rem
-    clamp(1.25rem, 5vw, 4.5rem);
-}
-
-.navSolid {
-  color: var(--brand-charcoal, #231f14);
-  background: var(--theme-bg, var(--brand-ivory, #f5f2ea));
-  box-shadow: 0 1px 0 rgba(35, 31, 20, 0.08);
-
-  .brand,
-  .mark,
-  .menuButton {
-    color: var(--brand-charcoal, #231f14);
-  }
-}
-
-.navSheetOpen {
-  background: var(--theme-bg, var(--brand-ivory, #f5f2ea));
-  box-shadow: none;
-}
-
 .navSpacer {
   height: var(--aurum-nav-height);
   flex-shrink: 0;
@@ -83,11 +38,17 @@
   height: 100%;
 }
 
-.image {
+.image,
+.video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.video {
+  position: absolute;
+  inset: 0;
 }
 
 .mediaFallback {
@@ -118,99 +79,6 @@
     0
     clamp(1.25rem, 5vw, 4.5rem)
     clamp(3rem, 8vw, 5.5rem);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: inherit;
-  text-decoration: none;
-}
-
-.mark {
-  flex-shrink: 0;
-  color: inherit;
-}
-
-.logoImage {
-  display: block;
-  flex-shrink: 0;
-  width: auto;
-  max-width: 9rem;
-  height: 2.25rem;
-  overflow: hidden;
-
-  :global(div),
-  :global(picture),
-  :global(span) {
-    display: block;
-    width: auto;
-    height: 100%;
-    max-width: 100%;
-  }
-
-  :global(img) {
-    display: block;
-    width: auto !important;
-    max-width: 100% !important;
-    height: 2.25rem !important;
-    max-height: 2.25rem !important;
-    object-fit: contain;
-  }
-}
-
-.menuButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  border: 0;
-  padding: 0.5rem;
-  background: transparent;
-  color: inherit;
-  cursor: pointer;
-}
-
-.menuLabel {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.menuIcon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.4rem;
-  width: 1.75rem;
-
-  span {
-    display: block;
-    height: 1.5px;
-    background: currentColor;
-    border-radius: 999px;
-    transition: transform 200ms ease, width 200ms ease;
-  }
-
-  span:first-child {
-    width: 100%;
-  }
-
-  span:last-child {
-    width: 70%;
-    margin-left: auto;
-  }
-}
-
-.menuButton:hover .menuIcon span:last-child,
-.menuButton:focus-visible .menuIcon span:last-child {
-  width: 100%;
 }
 
 .content {
@@ -275,45 +143,6 @@
 .cta:hover .ctaArrow,
 .cta:focus-visible .ctaArrow {
   transform: translateX(3px);
-}
-
-.sheetNav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.sheetLink {
-  display: block;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--brand-border, #d4ccc0);
-  color: var(--brand-charcoal, #231f14);
-  font-family: var(--font-heading), Georgia, serif;
-  font-size: clamp(1.5rem, 3vw, 1.85rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  text-decoration: none;
-  transition:
-    color 200ms ease,
-    padding-left 200ms ease;
-}
-
-.sheetLink:hover,
-.sheetLink:focus-visible {
-  color: var(--brand-terracotta, #b8956c);
-  padding-left: 0.35rem;
-  outline: none;
-}
-
-@keyframes aurumFadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @keyframes aurumFadeUp {

@@ -4,10 +4,12 @@ import React, { useEffect, useRef } from 'react'
 
 import type { Props } from '../types'
 
+import { normalizeMediaUrl } from '@root/utilities/normalizeMediaUrl'
+
 import classes from './index.module.scss'
 
 export const Video: React.FC<Props> = (props) => {
-  const { onClick, resource, videoClassName } = props
+  const { onClick, poster, resource, videoClassName } = props
 
   const videoRef = useRef<HTMLVideoElement>(null)
   // const [showFallback] = useState<boolean>()
@@ -32,9 +34,10 @@ export const Video: React.FC<Props> = (props) => {
         muted
         onClick={onClick}
         playsInline
+        poster={poster || undefined}
         ref={videoRef}
       >
-        <source src={resource.url || ''} />
+        <source src={normalizeMediaUrl(resource.url) || ''} />
       </video>
     )
   }

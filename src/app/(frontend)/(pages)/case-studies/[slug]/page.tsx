@@ -12,7 +12,11 @@ import React from 'react'
 import { CaseStudy } from './client_page'
 
 const getCaseStudy = (slug, draft) =>
-  draft ? fetchCaseStudy(slug) : unstable_cache(fetchCaseStudy, [`case-study-${slug}`])(slug)
+  draft
+    ? fetchCaseStudy(slug)
+    : unstable_cache(fetchCaseStudy, [`case-study-${slug}`], {
+        tags: ['case-studies', `case-study-${slug}`],
+      })(slug)
 
 const CaseStudyBySlug = async ({ params }) => {
   const { isEnabled: draft } = await draftMode()
@@ -38,7 +42,9 @@ const CaseStudyBySlug = async ({ params }) => {
 export default CaseStudyBySlug
 
 export async function generateStaticParams() {
-  const getCaseStudies = unstable_cache(fetchCaseStudies, ['caseStudies'])
+  const getCaseStudies = unstable_cache(fetchCaseStudies, ['caseStudies'], {
+    tags: ['case-studies'],
+  })
   const caseStudies = await getCaseStudies()
 
   return caseStudies.map(({ slug }) => ({

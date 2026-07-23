@@ -97,6 +97,7 @@ export const Sheet: React.FC<SheetProps> = ({ children, className, slug, title }
         aria-labelledby={title ? titleId : undefined}
         aria-modal="true"
         className={classes.panel}
+        data-theme="light"
         role="dialog"
       >
         <div className={classes.panelHeader}>

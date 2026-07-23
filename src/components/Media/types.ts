@@ -11,6 +11,7 @@ export interface Props {
   imgClassName?: string
   onClick?: () => void
   onLoad?: () => void
+  poster?: string
   priority?: boolean // for NextImage only
   ref?: Ref<HTMLImageElement | HTMLVideoElement | null>
   resource?: TypedUploadCollection[UploadCollectionSlug] // for Payload media

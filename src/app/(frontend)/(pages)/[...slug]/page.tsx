@@ -11,8 +11,17 @@ import { unstable_cache } from 'next/cache'
 import { draftMode } from 'next/headers'
 import React from 'react'
 
+const pageTags = (slug?: string[]) => {
+  const segments = slug?.length ? slug : ['home']
+  const pathKey = segments.join('/')
+  const leaf = segments.at(-1) || 'home'
+  return [`page-${pathKey}`, `page-${leaf}`, 'pages'] as string[]
+}
+
 const getPage = async (slug, draft?) =>
-  draft ? fetchPage(slug) : unstable_cache(fetchPage, [`page-${slug}`])(slug)
+  draft
+    ? fetchPage(slug)
+    : unstable_cache(fetchPage, pageTags(slug), { tags: pageTags(slug) })(slug)
 
 const Page = async ({
   params,
@@ -44,7 +53,7 @@ const Page = async ({
 export default Page
 
 export async function generateStaticParams() {
-  const getPages = unstable_cache(fetchPages, ['pages'])
+  const getPages = unstable_cache(fetchPages, ['pages'], { tags: ['pages'] })
   const pages = await getPages()
 
   return pages.map(({ breadcrumbs }) => ({

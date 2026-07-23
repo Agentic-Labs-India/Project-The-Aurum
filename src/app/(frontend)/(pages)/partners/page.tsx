@@ -25,7 +25,7 @@ export default async function Partners() {
 
   const getPartnerProgram = draft
     ? fetchPartnerProgram
-    : unstable_cache(fetchPartnerProgram, ['partnerProgram'])
+    : unstable_cache(fetchPartnerProgram, ['partnerProgram'], { tags: ['partnerProgram'] })
   const partnerProgram = await getPartnerProgram()
 
   if (!partnerProgram) {
@@ -33,7 +33,9 @@ export default async function Partners() {
   }
   const { contentBlocks, featuredPartners } = partnerProgram
 
-  const getPartners = draft ? fetchPartners : unstable_cache(fetchPartners, ['partners'])
+  const getPartners = draft
+    ? fetchPartners
+    : unstable_cache(fetchPartners, ['partners'], { tags: ['partners'] })
   const partners = await getPartners()
   const partnerList = partners?.map((partner) => {
     return {
@@ -53,7 +55,9 @@ export default async function Partners() {
     }
   })
 
-  const getFilters = draft ? fetchFilters : unstable_cache(fetchFilters, ['filters'])
+  const getFilters = draft
+    ? fetchFilters
+    : unstable_cache(fetchFilters, ['filters'], { tags: ['filters'] })
   const filters = await getFilters()
 
   const filterOptions = {

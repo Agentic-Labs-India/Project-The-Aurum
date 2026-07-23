@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 import { isAdmin } from '../access/isAdmin'
 import { publishedOnly } from '../access/publishedOnly'
@@ -100,19 +100,23 @@ export const Pages: CollectionConfig = {
     afterChange: [
       ({ doc, previousDoc }) => {
         if (doc._status === 'published' || doc._status !== previousDoc._status) {
+          revalidateTag('pages')
+          revalidateTag(`page-${doc.slug}`)
+
           if (doc.breadcrumbs && doc.breadcrumbs.length > 0) {
-            revalidatePath(doc.breadcrumbs[doc.breadcrumbs.length - 1].url)
-            console.log(`Revalidated: ${doc.breadcrumbs[doc.breadcrumbs.length - 1].url}`)
-            if (doc.breadcrumbs[0].url === '/home') {
+            const url = doc.breadcrumbs[doc.breadcrumbs.length - 1].url as string
+            const pathKey = url.replace(/^\/|\/$/g, '') || 'home'
+            revalidateTag(`page-${pathKey}`)
+            revalidatePath(url)
+            if (doc.slug === 'home' || url === '/home') {
+              revalidateTag('page-home')
               revalidatePath('/')
-              console.log(`Revalidated: /`)
             }
           } else {
             revalidatePath(`/${doc.slug}`)
-            console.log(`Revalidated: /${doc.slug}`)
             if (doc.slug === 'home') {
+              revalidateTag('page-home')
               revalidatePath('/')
-              console.log(`Revalidated: /`)
             }
           }
         }

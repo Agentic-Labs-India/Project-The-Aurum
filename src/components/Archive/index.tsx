@@ -48,7 +48,11 @@ const Navigation = ({
 
 export const Archive: React.FC<{ category: Category['slug'] }> = async ({ category }) => {
   const { isEnabled: draft } = await draftMode()
-  const getArchive = draft ? fetchArchive : unstable_cache(fetchArchive, [`${category}-archive`])
+  const getArchive = draft
+    ? fetchArchive
+    : unstable_cache(fetchArchive, [`${category}-archive`], {
+        tags: ['archives', `${category}-archive`],
+      })
   const getArchives = draft
     ? fetchArchives
     : unstable_cache(fetchArchives, [`archives`], {

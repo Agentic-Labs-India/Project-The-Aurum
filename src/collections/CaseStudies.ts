@@ -1,7 +1,7 @@
 // import { slateEditor } from '@payloadcms/richtext-slate'
 import type { CollectionConfig } from 'payload'
 
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 import { isAdmin } from '../access/isAdmin'
 import { publishedOnly } from '../access/publishedOnly'
@@ -108,9 +108,10 @@ export const CaseStudies: CollectionConfig = {
   hooks: {
     afterChange: [
       ({ doc }) => {
+        revalidateTag('case-studies')
+        revalidateTag(`case-study-${doc.slug}`)
         revalidatePath(`/case-studies/${doc.slug}`)
         revalidatePath(`/case-studies`, 'page')
-        console.log(`Revalidated: /case-studies/${doc.slug}`)
       },
     ],
   },

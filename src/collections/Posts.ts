@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 import { isAdmin } from '../access/isAdmin'
 import { publishedOnly } from '../access/publishedOnly'
@@ -329,15 +329,18 @@ export const Posts: CollectionConfig = {
           if (!category) {
             throw new Error('Category not found')
           } else {
-            revalidatePath(`/${category.slug}/${doc.slug}`)
-            console.log(`Revalidated: /posts/${category.slug}/${doc.slug}`)
+            revalidateTag('posts')
+            revalidateTag(`post-${doc.slug}`)
+            revalidatePath(`/posts/${category.slug}/${doc.slug}`)
+            revalidatePath(`/posts/${category.slug}`)
           }
 
           if (!previousCategory) {
             throw new Error('Previous category not found')
           } else {
-            revalidatePath(`/${previousCategory.slug}/${previousDoc.slug}`)
-            console.log(`Revalidated: /posts/${previousCategory.slug}/${previousDoc.slug}`)
+            revalidateTag(`post-${previousDoc.slug}`)
+            revalidatePath(`/posts/${previousCategory.slug}/${previousDoc.slug}`)
+            revalidatePath(`/posts/${previousCategory.slug}`)
           }
         } catch (error) {
           console.error(error)
@@ -358,10 +361,10 @@ export const Posts: CollectionConfig = {
           if (!category) {
             throw new Error('Category not found')
           } else {
-            revalidatePath(`/${category.slug}`)
-            revalidatePath(`/${category.slug}/${doc.slug}`)
-            console.log(`Revalidated: /posts/${category.slug}`)
-            console.log(`Revalidated: /posts/${category.slug}/${doc.slug}`)
+            revalidateTag('posts')
+            revalidateTag(`post-${doc.slug}`)
+            revalidatePath(`/posts/${category.slug}`)
+            revalidatePath(`/posts/${category.slug}/${doc.slug}`)
           }
         } catch (error) {
           console.error(error)

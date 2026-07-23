@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 import { isAdmin, isAdminFieldLevel } from '../access/isAdmin'
 import { slugField } from '../fields/slug'
@@ -347,9 +347,10 @@ export const Partners: CollectionConfig = {
   hooks: {
     afterChange: [
       ({ doc }) => {
+        revalidateTag('partners')
+        revalidateTag(`partner-${doc.slug}`)
         revalidatePath(`/partners/${doc.slug}`)
         revalidatePath(`/partners`, 'page')
-        console.log(`Revalidated: /partners/${doc.slug}`)
       },
     ],
   },

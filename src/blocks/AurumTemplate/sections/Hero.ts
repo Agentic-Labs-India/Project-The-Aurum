@@ -79,11 +79,53 @@ export const AurumHeroSection: Block = {
       ],
     },
     {
+      name: 'backgroundType',
+      type: 'select',
+      defaultValue: 'image',
+      label: 'Background media',
+      options: [
+        {
+          label: 'Image',
+          value: 'image',
+        },
+        {
+          label: 'Video',
+          value: 'video',
+        },
+      ],
+      admin: {
+        description: 'Choose a still image or a looping background video.',
+      },
+    },
+    {
       name: 'backgroundImage',
       type: 'upload',
       label: 'Background image',
       relationTo: 'media',
-      required: true,
+      admin: {
+        condition: (_, siblingData) => siblingData?.backgroundType !== 'video',
+        description: 'Full-bleed hero image.',
+      },
+    },
+    {
+      name: 'backgroundVideo',
+      type: 'upload',
+      label: 'Background video',
+      relationTo: 'media',
+      admin: {
+        condition: (_, siblingData) => siblingData?.backgroundType === 'video',
+        description: 'Upload an mp4/webm. Plays muted, looping, autoplay.',
+      },
+    },
+    {
+      name: 'backgroundVideoPoster',
+      type: 'upload',
+      label: 'Video poster (optional)',
+      relationTo: 'media',
+      admin: {
+        condition: (_, siblingData) => siblingData?.backgroundType === 'video',
+        description: 'Shown while the video loads, or if autoplay is blocked.',
+      },
     },
     {
       name: 'headline',

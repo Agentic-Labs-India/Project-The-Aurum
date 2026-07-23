@@ -47,8 +47,8 @@
     calc(var(--aurum-nav-height, 4.75rem) + 0.75rem)
     1.75rem
     2rem;
-  background: var(--theme-bg, var(--brand-ivory, #f5f2ea));
-  color: var(--brand-charcoal, #231f14);
+  background: #f5f2ea;
+  color: #231f14;
   box-shadow: -20px 0 60px rgba(35, 31, 20, 0.22);
   transform: translateX(100%);
   pointer-events: auto;
@@ -69,6 +69,7 @@
   font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: -0.02em;
+  color: #231f14;
 }
 
 .closeButton {
@@ -76,10 +77,10 @@
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
-  border: 1px solid var(--brand-border, #d4ccc0);
+  border: 1px solid #d4ccc0;
   border-radius: 999px;
   background: transparent;
-  color: var(--brand-charcoal, #231f14);
+  color: #231f14;
   cursor: pointer;
   transition:
     background-color 200ms ease,
@@ -88,8 +89,8 @@
 
 .closeButton:hover,
 .closeButton:focus-visible {
-  background: var(--brand-mist, #ebe6dd);
-  border-color: var(--brand-stone, #b8ac98);
+  background: #ebe6dd;
+  border-color: #b8ac98;
   outline: none;
 }
 

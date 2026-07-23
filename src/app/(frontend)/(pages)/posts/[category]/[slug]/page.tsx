@@ -13,7 +13,9 @@ import React from 'react'
 const getPost = async (slug, category, draft?) =>
   draft
     ? await fetchBlogPost(slug, category)
-    : await unstable_cache(fetchBlogPost, ['blogPost', `post-${slug}`])(slug, category)
+    : await unstable_cache(fetchBlogPost, ['blogPost', `post-${slug}`], {
+        tags: ['posts', `post-${slug}`],
+      })(slug, category)
 
 const PostPage = async ({
   params,
@@ -47,7 +49,7 @@ const PostPage = async ({
 export default PostPage
 
 export async function generateStaticParams() {
-  const getPosts = unstable_cache(fetchPosts, ['allPosts'])
+  const getPosts = unstable_cache(fetchPosts, ['allPosts'], { tags: ['posts'] })
   const posts = await getPosts()
 
   return posts
